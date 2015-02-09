@@ -1,0 +1,30 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+@{
+    ViewBag.Title = "DeleteUser";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<body>
+    <div id="main">
+        <div id="site_content">
+            <div id="content">
+                <div class="content_item">
+                    <form method="post" action="/Admin/delete">
+                        Email : <input type="text" name="Email" placeholder="Email" />
+                        <br /><br />
+                        <input type="submit" value="Submit" />
+                        <br /><br />
+                    </form>
+
+                </div><!--close content_item-->
+            </div><!--close content-->
+        </div><!--close site_content-->
+    </div><!--close main-->
+
+   
+
+</body>
+</html>
+

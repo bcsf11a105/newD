@@ -1,0 +1,66 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#b1').click(function () {
+            var title1 = $('#t').val();
+            $.getJSON("/Diary/SearchFinal?title=" + title1, function (data) {
+                //if (data == null)
+                {
+                    $('#text1').text(data);
+                }
+                // else
+                {
+
+                }
+
+            });
+
+        });
+
+    });
+</script>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+
+@{
+    ViewBag.Title = "SearchNote";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+
+@model Term_Project.Models.Diaryy
+
+<body>
+    <div id="main">
+        <div id="site_content">
+            <div id="content">
+                <div class="content_item">
+                    Title : <input type="text" id="t" name="Title" placeholder="Title"  required/>
+                    <input type="button" name="Search" value="Search" id="b1" />
+                    
+                <!--<form method="post" action="/Diary/SearchFinal">
+                        
+                        <br /><br />
+                        <input type="submit" value="Search" />
+                        <br /><br />
+                    </form>
+                    -->
+                    <br /><br />
+                    <p id="title">Text</p>
+                    <br />
+                    <p id="text1"></p>
+                    <br /><br /><a href="/User/NewNote">Want to write a new one?click here...</a>
+                    
+                </div><!--close content_item-->
+            </div><!--close content-->
+        </div><!--close site_content-->
+    </div><!--close main-->
+
+
+
+</body>
+</html>
+

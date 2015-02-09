@@ -1,0 +1,56 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+@{
+    ViewBag.Title = "NewNote";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+
+@model Term_Project.Models.Diaryy
+
+<body>
+    <div id="main">
+        <div id="site_content">
+            <div id="content">
+                <div class="content_item">
+                    
+                    <form method="post" action="/User/SaveNewNote">
+                        Title : <input type="text" name="Title" placeholder="Title" />
+                        <br /><br />
+                        Write Here:<br /><textarea class="contact textarea" rows="20" cols="100" name="Text"></textarea>
+                        <br /><br />
+                        <input type="submit" value="Save Note" />
+                        <br /><br />
+                    </form>
+
+                    @*@using (Html.BeginForm("SaveNewNote", "User", FormMethod.Post,
+                    new { enctype = "multipart/form-data" }))
+                    {
+                        
+                        
+                        @Html.LabelFor(m=>m.Title)
+                        @Html.TextBoxFor(m => m.Title)
+                        
+                        <br />
+                        <br />
+                        <fieldset>
+                            Image: <input type="file" name="file" />
+                            <input type="submit" value="Upload" />
+                        </fieldset>
+                        <br />
+                        <br />
+                        @Html.LabelFor(m => m.Text)
+                        @Html.TextAreaFor(m => m.Text)
+                       
+                    }*@
+
+                    
+                </div><!--close content_item-->
+            </div><!--close content-->
+        </div><!--close site_content-->
+    </div><!--close main-->
+
+   
+
+</body>
+</html>

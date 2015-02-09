@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+@{
+    ViewBag.Title = "My Diary-Home";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+
+<body>
+  <div id="main">
+	<div id="site_content">		
+	  <div id="content">
+        <div class="content_item">
+            
+		  <h1>Welcome To My Diary</h1> 
+          <p>This is a platform for you to say whta you want to write but can't because of any type of fear. Write your secrets and forget about everything because your secrets can't be revealed.</p>   				  	  
+		  <p>Don't forget to give your feedback.</p><br />
+
+          <b>@Html.ActionLink(">>>Update Your Profile", "Update")</b>
+            <br /><br />
+          <b>@Html.ActionLink(">>>Delete Your Profile", "Delete")</b>
+
+          @*<b><a href="/User/Update">>>>Update Your Profile</a></b>
+          <br /><br />
+          <b><a href="/User/Delete">>>>Delete Your Profile</a></b>*@
+          <br /><br />
+            <b>@TempData["update"]</b>
+         </div><!--close content_item-->
+      </div><!--close content-->   
+	</div><!--close site_content--> 
+    
+	
+ 
+  </div><!--close main-->
+  
+  
+  
+</body>
+</html>

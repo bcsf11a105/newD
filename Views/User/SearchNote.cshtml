@@ -1,0 +1,34 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+@{
+    ViewBag.Title = "SearchNote";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+
+@model Term_Project.Models.Diaryy
+
+<body>
+    <div id="main">
+        <div id="site_content">
+            <div id="content">
+                <div class="content_item">
+
+                    <form method="post" action="/User/SearchFinal">
+                        Title : <input type="text" name="Title" placeholder="Title" />
+                        <br /><br />
+                        <input type="submit" value="Search" />
+                        <br /><br />
+                    </form>
+                    
+                    
+                </div><!--close content_item-->
+            </div><!--close content-->
+        </div><!--close site_content-->
+    </div><!--close main-->
+
+
+
+</body>
+</html>
+
