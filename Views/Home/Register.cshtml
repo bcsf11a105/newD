@@ -1,0 +1,111 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+   $(document).ready(function () {
+       $('#b1').click(function () {
+           var name = $('#uname').val();
+           $.getJSON("/Home/CheckUsername?name=" + name, function (data) {
+               //if (data == null)
+               {
+                   $('#p1').text(data);
+               }
+               // else
+               {
+
+               }
+
+           });
+
+       });
+
+   });
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model Term_Project.Models.User
+
+<body>
+    <div id="main">
+        <div id="site_content">
+            <div id="content">
+                <div class="content_item">
+                    @*<form method="post" action="/Home/RegisterUser">
+                        Username : <input type="text" name="Name" placeholder="Username" />
+                        <br /><br />
+                        Password : <input type="password" name="Password" placeholder="Password" />
+                        <br /><br />
+                        Email : <input type="text" name="Email" placeholder="Email" />
+                        <br /><br />
+                        Age : <input type="text" name="Age" placeholder="Age" />
+                        <br /><br />
+                        Hobby : <input type="text" name="Hobby" placeholder="Hobby" />
+                        <br /><br />
+                        Gender : <input type="radio" name="Gender" value="Male" />Male
+                        <input type="radio" name="Gender" value="Female" />Female
+                        <br /><br />
+                        <input type="submit" value="Register"/>
+                        <br /><br />
+                    </form>*@
+                    <p>@TempData["error"]</p><br />
+                    @using (Html.BeginForm("RegisterUser", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                       
+                        
+                        @Html.LabelFor(m => m.Name)
+                        @Html.TextBoxFor(m => m.Name, null, new { id = "uname" , required ="true" })
+                        @Html.ValidationMessageFor(m=>m.Name)
+                        
+                        <input type="button" name="Check" value="Check Availability" id="b1" />
+                        <br />
+                        <p id="p1"></p>
+                        <br />
+                        @Html.LabelFor(m => m.Password)
+                        @Html.PasswordFor(m => m.Password, new { required = "true" })
+                        @Html.ValidationMessageFor(m=>m.Password)
+                        <br />
+                        <br />
+                        @Html.LabelFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email, new { type = "email", required = "true" })
+                        @Html.ValidationMessageFor(m=>m.Email)
+                        <br />
+                        <br />
+                        @Html.LabelFor(m => m.Age)
+                        @Html.TextBoxFor(m => m.Age, new { type="number" , required = "true" })
+                        @Html.ValidationMessageFor(m=>m.Age)
+                        <br />
+                        <br />
+                        @Html.LabelFor(m => m.Hobby)
+                        @Html.TextBoxFor(m => m.Hobby)
+                        @Html.ValidationMessageFor(m=>m.Hobby)
+                        <br />
+                        <br />
+                        @Html.LabelFor(m => m.Gender)
+                        @Html.TextBoxFor(m => m.Gender, new { required = "true" })
+                        @Html.ValidationMessageFor(m=>m.Gender)
+                        <br />
+                        <br />
+                        <input type="file" name="Image" required/>
+                        <br />
+                        <br />
+                        <input type="submit" value="Register" />
+                        <br />
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    @*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+</body>
+</html>

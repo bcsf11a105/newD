@@ -1,0 +1,68 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Term_Project.Models.User
+
+<body>
+    <div id="main">
+        <div id="site_content">
+            <div id="content">
+                <div class="content_item">
+                    <p>@TempData["text"]</p>
+                   
+                    @*<p>@TempData["text"]</p>
+    <br /><br />
+
+             <form method="post" action="/Home/Login_check">
+                 Username : <input type="text" name="Name" placeholder="Username"/>
+                 <br /><br />
+                 Password : <input type="password" name="Password" placeholder="Password"/>
+                 <br /><br />
+                 <input type="submit" value="Login" />
+                 <br /><br />
+             </form>
+             <br />
+             <br />
+             <p><a href="/Home/Register">Register Yourself Here</a></p><br />*@
+                       
+                 
+            @using (Html.BeginForm("Login_check", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+
+
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name, new { required = "true" })
+            @Html.ValidationMessageFor(m => m.Name)
+            <br />
+            <br />
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new { required = "true" })
+            @Html.ValidationMessageFor(m => m.Password)
+
+            <br />
+            <br />
+            <input type="submit" value="Log in" />
+            <br />
+
+            }
+
+            <br /><br />
+            @Html.ActionLink("Register Yourself Here", "Register")
+               </div>
+            </div>
+        </div>
+    </div>
+    
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>
